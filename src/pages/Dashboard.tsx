@@ -37,17 +37,17 @@ const Dashboard = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="glass p-6 rounded-xl flex flex-col items-center justify-center">
-          <span className="text-4xl font-semibold">{tasks.length}</span>
+        <div className="sci-card p-6 rounded-xl flex flex-col items-center justify-center relative z-10">
+          <span className="text-4xl font-semibold text-gradient-blue">{tasks.length}</span>
           <span className="text-muted-foreground mt-1">Total Tasks</span>
         </div>
         
-        <div className="glass p-6 rounded-xl flex flex-col items-center justify-center">
+        <div className="sci-card p-6 rounded-xl flex flex-col items-center justify-center relative z-10">
           <span className="text-4xl font-semibold text-amber-500">{pendingCount}</span>
           <span className="text-muted-foreground mt-1">Pending Tasks</span>
         </div>
         
-        <div className="glass p-6 rounded-xl flex flex-col items-center justify-center">
+        <div className="sci-card p-6 rounded-xl flex flex-col items-center justify-center relative z-10">
           <span className="text-4xl font-semibold text-green-500">{completedCount}</span>
           <span className="text-muted-foreground mt-1">Completed Tasks</span>
         </div>

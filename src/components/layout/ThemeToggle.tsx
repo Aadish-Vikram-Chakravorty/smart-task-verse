@@ -40,6 +40,7 @@ const ThemeToggle = () => {
         )}
       </div>
       
+      {/* Small decorative atom, positioned differently based on theme */}
       <Atom 
         size={12} 
         className={cn(
