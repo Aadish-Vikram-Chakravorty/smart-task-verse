@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import TaskForm from '../tasks/TaskForm';
+import ThemeToggle from './ThemeToggle';
+import { cn } from '@/lib/utils';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +26,7 @@ const Header = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-8 transition-all duration-300 ease-apple-ease",
-        scrolled ? "glass shadow-sm backdrop-blur-lg" : "bg-transparent"
+        scrolled ? "glass shadow-sm backdrop-blur-lg dark:glass-dark" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -51,6 +53,7 @@ const Header = () => {
             <Link to="/dashboard" className="px-4 py-2 rounded-md text-sm font-medium hover:bg-accent transition-colors">
               Dashboard
             </Link>
+            <ThemeToggle />
           </nav>
           
           <Dialog>
@@ -66,7 +69,8 @@ const Header = () => {
           </Dialog>
         </div>
         
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center space-x-3">
+          <ThemeToggle />
           <Button 
             variant="ghost" 
             size="icon"
@@ -79,14 +83,14 @@ const Header = () => {
       </div>
       
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 p-4 glass animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 p-4 glass animate-fade-in dark:glass-dark">
           <div className="flex flex-col space-y-3">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input 
                 type="search" 
                 placeholder="Search tasks..." 
-                className="pl-10 py-2 h-10 bg-white/50 border-0"
+                className="pl-10 py-2 h-10 bg-white/50 dark:bg-black/20 border-0"
               />
             </div>
             
@@ -125,5 +129,4 @@ const Header = () => {
   );
 };
 
-import { cn } from '@/lib/utils';
 export default Header;
