@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, CheckCircle, Clock, PlusCircle, Sliders } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,9 +24,19 @@ const features = [
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-[85vh]">
+    <div className="relative flex flex-col min-h-[85vh] overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-10 filter blur-sm" 
+        style={{ 
+          backgroundImage: "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')", 
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        }}
+      />
+      
       {/* Hero Section */}
-      <section className="flex flex-col items-center text-center px-4 py-16 md:py-24 max-w-5xl mx-auto">
+      <section className="relative z-10 flex flex-col items-center text-center px-4 py-16 md:py-24 max-w-5xl mx-auto">
         <div className="space-y-4 animate-fade-in">
           <div className="inline-block">
             <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">
@@ -62,7 +71,7 @@ const Index = () => {
       </section>
       
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-accent/50">
+      <section className="relative z-10 py-16 md:py-24 bg-accent/50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -95,7 +104,7 @@ const Index = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-16 md:py-24 text-center max-w-4xl mx-auto px-4">
+      <section className="relative z-10 py-16 md:py-24 text-center max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Ready to manage your tasks differently?
         </h2>
