@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Atom } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { cn } from '@/lib/utils';
 
@@ -12,9 +12,12 @@ const ThemeToggle = () => {
     <div 
       className={cn(
         "relative w-16 h-8 rounded-full p-1 cursor-pointer transition-colors duration-300",
-        isDark ? "bg-slate-800" : "bg-blue-100"
+        isDark ? "bg-slate-800 border border-slate-700" : "bg-blue-100 border border-blue-200"
       )}
       onClick={toggleTheme}
+      aria-label="Toggle theme"
+      role="button"
+      tabIndex={0}
     >
       <div 
         className={cn(
@@ -27,7 +30,7 @@ const ThemeToggle = () => {
         {isDark ? (
           <Moon 
             size={16} 
-            className="text-green-400 filter drop-shadow-[0_0_3px_rgba(74,222,128,0.8)] transition-colors duration-300" 
+            className="text-cyan-400 filter drop-shadow-[0_0_3px_rgba(34,211,238,0.8)] transition-colors duration-300" 
           />
         ) : (
           <Sun 
@@ -36,6 +39,16 @@ const ThemeToggle = () => {
           />
         )}
       </div>
+      
+      <Atom 
+        size={12} 
+        className={cn(
+          "absolute opacity-40 transition-all duration-300",
+          isDark 
+            ? "right-1 top-[-8px] text-cyan-300" 
+            : "left-1 bottom-[-8px] text-amber-400"
+        )}
+      />
     </div>
   );
 };
